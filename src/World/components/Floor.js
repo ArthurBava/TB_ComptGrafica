@@ -19,7 +19,7 @@ class Floor {
     static createPlaneFloor(width = 10, height = 10, receiveShadow = true) {
         const geometry = new THREE.PlaneGeometry(width, height);
 
-        const material = new THREE.MeshBasicMaterial({
+        const material = new THREE.MeshStandardMaterial({
             color: 0x808080,
             side: THREE.DoubleSide
         });

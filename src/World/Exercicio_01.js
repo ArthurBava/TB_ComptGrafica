@@ -41,7 +41,8 @@ class Exercicio_01 {
     const guiControls = new GuiControls();
     
     // -- SCENE init --    
-    camera.position.set(0, 15, 30);    
+    camera.position.set(0, 15, 30);
+    camera.far = 80;    
 
     scene = Scene.create();    
     Scene.addGridHelper(scene, 40, 40).helper.visible = true; // adiciona grid de referência
@@ -56,18 +57,60 @@ class Exercicio_01 {
     scene.add(floor);
 
     // iluminação
-    const ambientLight = Light.createAmbientLight(0xffffff, 0.5);
+    const ambientLight = Light.createAmbientLight(0xffffff, 1);
     scene.add(ambientLight);
 
+    const directionalLight = Light.createDirectionalLight(2.5, 8, 8, 0xffffff, 1);
+
+    // adiciona helper da iluminação
+    const dlHelper = Light.createDirectionalLightHelper(directionalLight, 3);
+    dlHelper.visible = true;
+
+    scene.add(directionalLight, dlHelper); 
+
     // objetos na cena!
-    const geometry = new THREE.BoxGeometry( 5, 5, 5 );
-    const material = new THREE.MeshBasicMaterial( { color: 'blue', wireframe: true} );
+    let geometry = new THREE.BoxGeometry( 5, 5, 5 );
+    let material = new THREE.MeshBasicMaterial( { color: 'blue', wireframe: false} );
     cube = new THREE.Mesh( geometry, material );
     cube.position.set(-10, 5, 0);
     scene.add( cube );
+
+    // esfera
+    sphere = new THREE.Mesh( 
+      new THREE.SphereGeometry( 3, 32, 32 ), 
+      new THREE.MeshPhongMaterial( 
+        { 
+          color: 0x049ef4, 
+          wireframe: false,
+          side: THREE.DoubleSide,
+          shininess: 90 
+        } ) 
+    );
+    sphere.position.set(-3, 5, 0);
+    sphere.receiveShadow = false;
+    sphere.castShadow = true;
+    scene.add( sphere );
+
+    // torus
+    torus = new THREE.Mesh( 
+      new THREE.TorusGeometry( 3, 2, 32, 100 ),  
+      new THREE.MeshStandardMaterial( { color: 'red' } ) );
+
+    torus.position.set(6, 5, 0);
+    scene.add( torus );
+
+    // cilindro
+    cylinder = new THREE.Mesh( 
+      new THREE.CylinderGeometry( 3, 3, 15, 64 ), 
+      new THREE.MeshLambertMaterial( { color: 'green' } ) );
+    
+    cylinder.position.set(18, 5, 0);
+    scene.add( cylinder );
+
     
     guiControls.addCameraFolder(camera, controls);
-    guiControls.addLightFolder(ambientLight);
+    guiControls.addLightFolder(ambientLight);    
+    guiControls.addLightFolder(directionalLight, dlHelper);
     guiControls.addSceneFolder(scene);
     guiControls.datGui.open();
   }
