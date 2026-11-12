@@ -9,6 +9,8 @@ class Renderer {
     renderer.toneMapping = THREE.ACESFilmicToneMapping; // Recommended for realism
     renderer.toneMappingExposure = 1.0;
 
+    renderer.localClippingEnabled = true;
+
     return renderer;
   }
 }

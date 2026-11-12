@@ -76,6 +76,10 @@ class Exercicio_01 {
     scene.add( cube );
 
     // esfera
+    const localPlanes = [
+      new THREE.Plane(new THREE.Vector3(0, -1, 0), 5) // corte de parte do objeto na renderização
+    ];
+
     sphere = new THREE.Mesh( 
       new THREE.SphereGeometry( 3, 32, 32 ), 
       new THREE.MeshPhongMaterial( 
@@ -83,7 +87,9 @@ class Exercicio_01 {
           color: 0x049ef4, 
           wireframe: false,
           side: THREE.DoubleSide,
-          shininess: 90 
+          shininess: 90, 
+          clippingPlanes: localPlanes, // corte de parte do objeto na renderização
+          clipIntersection: true       // corte de parte do objeto na renderização
         } ) 
     );
     sphere.position.set(-3, 5, 0);
