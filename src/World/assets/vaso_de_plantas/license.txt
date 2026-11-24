@@ -1,0 +1,11 @@
+Model Information:
+* title:	VASO DE PLANTAS
+* source:	https://sketchfab.com/3d-models/vaso-de-plantas-2d59d2040ccb4dc8b05b80ed12ad4420
+* author:	isaque.caceres (https://sketchfab.com/isaque.caceres)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "VASO DE PLANTAS" (https://sketchfab.com/3d-models/vaso-de-plantas-2d59d2040ccb4dc8b05b80ed12ad4420) by isaque.caceres (https://sketchfab.com/isaque.caceres) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
