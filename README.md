@@ -1,3 +1,7 @@
+Integrante da equipe 10: Arthur B.Spada
+RA: 1136264
+
+
 ## 1. Estrutura de Pastas
 
 ```text
