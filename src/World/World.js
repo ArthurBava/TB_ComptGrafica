@@ -64,8 +64,9 @@ class World {
 
     cena1Group.add(Room.create());
 
-    const luminaria = Luminaria.create();
+   const luminaria = Luminaria.create();
     luminaria.rotation.y = Math.PI / 2;
+    luminaria.position.x = 4.0; // Aumente ou diminua este valor para ajustar para a direita
     cena1Group.add(luminaria);
 
     this.initPhysics();
